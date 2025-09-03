@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}เข้าสู่ระบบครู{% endblock %}
+
+{% block content %}
+<h2>เข้าสู่ระบบครู/ผู้ดูแล</h2>
+<form method="POST">
+    <label>ชื่อผู้ใช้:</label>
+    <input type="text" name="username" required>
+    <label>รหัสผ่าน:</label>
+    <input type="password" name="password" required>
+    <button type="submit">เข้าสู่ระบบ</button>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ shop_name }}{% endblock %}
+
+{% block content %}
+<h2>{{ shop_name }}</h2>
+<ul>
+    {% for item in menu_items %}
+    <li>
+        <img src="{{ item[4] }}" width="100">
+        {{ item[1] }} - {{ item[2] }} บาท
+        <button onclick="addToCart({{ item[0] }}, '{{ item[1] }}', {{ item[2] }}, 1, {{ shop_id }})">เพิ่ม</button>
+    </li>
+    {% endfor %}
+</ul>
+<script>
+function addToCart(item_id, name, price, quantity, shop_id){
+    fetch("/add_to_cart", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({item_id, name, price, quantity, shop_id})
+    }).then(res => res.json()).then(data => alert("เพิ่มเข้าตะกร้าแล้ว"))
+}
+</script>
+{% endblock %}

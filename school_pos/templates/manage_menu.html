@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}จัดการเมนู{% endblock %}
+
+{% block content %}
+<h2>จัดการเมนู</h2>
+<ul>
+    {% for item in menu_items %}
+    <li>{{ item[1] }} - {{ item[2] }} บาท - {% if item[4] %}พร้อมขาย{% else %}หมด{% endif %}</li>
+    {% endfor %}
+</ul>
+
+<h3>เพิ่มเมนูใหม่</h3>
+<form method="POST" action="{{ url_for('add_menu_item') }}">
+    <input type="text" name="name" placeholder="ชื่อเมนู" required>
+    <input type="number" step="0.01" name="price" placeholder="ราคา" required>
+    <input type="number" step="0.01" name="cost" placeholder="ต้นทุน" required>
+    <input type="text" name="category" placeholder="ประเภท" required>
+    <button type="submit">เพิ่ม</button>
+</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}School POS{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="navbar">
+        <a class="logo" href="{{ url_for('index') }}">School POS</a>
+        <div class="nav-links">
+            <a href="{{ url_for('student_login') }}">นักเรียน</a>
+            <a href="{{ url_for('shop_login') }}">แม่ค้า</a>
+            {% if 'user_type' in session %}
+                <a href="{{ url_for('logout') }}">ออกจากระบบ</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+    
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for msg in messages %}
+                <li>{{ msg }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <p>School POS &copy; 2025</p>
+    </footer>
+</body>
+</html>

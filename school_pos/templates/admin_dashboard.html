@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}แดชบอร์ดครู{% endblock %}
+
+{% block content %}
+<h2>แดชบอร์ดผู้ดูแลระบบ</h2>
+
+<h3>นักเรียน</h3>
+<table border="1">
+    <tr>
+        <th>รหัสนักเรียน</th>
+        <th>ชื่อ</th>
+        <th>ยอดเงิน</th>
+        <th>จัดการ</th>
+    </tr>
+    {% for s in students %}
+    <tr>
+        <td>{{ s[0] }}</td>
+        <td>{{ s[1] }}</td>
+        <td>{{ s[2] }}</td>
+        <td>
+            <a href="{{ url_for('edit_student', student_id=s[0]) }}">แก้ไข</a>
+            <a href="{{ url_for('delete_student', student_id=s[0]) }}">ลบ</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>ร้านค้า</h3>
+<table border="1">
+    <tr>
+        <th>ID ร้าน</th>
+        <th>ชื่อร้าน</th>
+        <th>เจ้าของ</th>
+        <th>จัดการ</th>
+    </tr>
+    {% for shop in shops %}
+    <tr>
+        <td>{{ shop[0] }}</td>
+        <td>{{ shop[1] }}</td>
+        <td>{{ shop[2] }}</td>
+        <td>
+            <a href="{{ url_for('edit_shop', shop_id=shop[0]) }}">แก้ไข</a>
+            <a href="{{ url_for('delete_shop', shop_id=shop[0]) }}">ลบ</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

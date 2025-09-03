@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}แดชบอร์ดร้านค้า{% endblock %}
+
+{% block content %}
+<h2>{{ shop_name }} (เจ้าของร้าน: {{ owner_name }})</h2>
+<h3>เมนู</h3>
+<ul>
+    {% for item in menu_items %}
+    <li>{{ item[1] }} - {{ item[2] }} บาท</li>
+    {% endfor %}
+</ul>
+<p>ยอดสั่งวันนี้: {{ daily_orders }} | ยอดขายวันนี้: {{ daily_sales }} บาท</p>
+<a href="{{ url_for('manage_menu') }}">จัดการเมนู</a>
+<a href="{{ url_for('sales_report') }}">รายงานการขาย</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}หน้าแรก{% endblock %}
+
+{% block content %}
+<h1>ยินดีต้อนรับสู่ School POS</h1>
+<p>กรุณาเลือกการเข้าสู่ระบบ:</p>
+<ul>
+    <li><a href="{{ url_for('student_login') }}">นักเรียน</a></li>
+    <li><a href="{{ url_for('shop_login') }}">แม่ค้า</a></li>
+</ul>
+{% endblock %}

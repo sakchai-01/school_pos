@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}เข้าสู่ระบบร้านค้า{% endblock %}
+
+{% block content %}
+<h2>เข้าสู่ระบบร้านค้า</h2>
+<form method="POST">
+    <label>ชื่อร้าน:</label>
+    <input type="text" name="shop_name" required>
+    <label>รหัสผ่าน:</label>
+    <input type="password" name="password" required>
+    <button type="submit">เข้าสู่ระบบ</button>
+</form>
+{% endblock %}

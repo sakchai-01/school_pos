@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}ตะกร้าสินค้า{% endblock %}
+
+{% block content %}
+<h2>ตะกร้าสินค้า</h2>
+<ul>
+    {% for item in cart %}
+    <li>{{ item['name'] }} x {{ item['quantity'] }} = {{ item['price']*item['quantity'] }} บาท</li>
+    {% endfor %}
+</ul>
+<p>รวม: {{ total }} บาท</p>
+<form method="POST" action="{{ url_for('checkout') }}">
+    <button type="submit">ชำระเงิน</button>
+</form>
+{% endblock %}

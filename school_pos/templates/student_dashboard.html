@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}แดชบอร์ดนักเรียน{% endblock %}
+
+{% block content %}
+<h2>สวัสดี {{ student_name }} | ยอดเงิน: {{ balance }} บาท</h2>
+<h3>ร้านค้า</h3>
+<ul>
+    {% for shop in shops %}
+    <li>
+        <a href="{{ url_for('shop_menu', shop_id=shop[0]) }}">
+            <img src="{{ shop[2] }}" width="100">
+            {{ shop[1] }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('view_cart') }}">ดูตะกร้า</a>
+{% endblock %}

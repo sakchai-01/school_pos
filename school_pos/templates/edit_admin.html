@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}แก้ไขครู/แอดมิน{% endblock %}
+
+{% block content %}
+<h2>แก้ไขครู/แอดมิน {{ admin_id }}</h2>
+
+<form method="POST">
+    <label>Username:</label>
+    <input type="text" name="username" value="{{ admin[0] }}" required><br><br>
+
+    <label>ชื่อ:</label>
+    <input type="text" name="name" value="{{ admin[1] }}" required><br><br>
+
+    <label>รหัสผ่านใหม่ (เว้นว่างถ้าไม่เปลี่ยน):</label>
+    <input type="password" name="password"><br><br>
+
+    <button type="submit">บันทึก</button>
+</form>
+{% endblock %}
